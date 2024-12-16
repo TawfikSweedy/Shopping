@@ -1,6 +1,10 @@
 
 
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Models/user_model.dart';
 
 class SharedPref{
   // singleton
@@ -21,14 +25,14 @@ class SharedPref{
     prefs = await SharedPreferences.getInstance();
   }
 
-  // static Future<bool?> saveUserObj({required UserModel user})async{
-  //   return await prefs?.setString(_userObj, jsonEncode(user.toJson()));
-  // }
-  // static UserModel? getUserObg(){
-  //   String? userStringData = prefs?.getString(_userObj);
-  //   if(userStringData==null) return null;
-  //   return UserModel.fromJson(jsonDecode(userStringData));
-  // }
+  static Future<bool?> saveUserObj({required UserModel user})async{
+    return await prefs?.setString(_userObj, jsonEncode(user.toJson()));
+  }
+  static UserModel? getUserObg(){
+    String? userStringData = prefs?.getString(_userObj);
+    if(userStringData==null) return null;
+    return UserModel.fromJson(jsonDecode(userStringData));
+  }
 
 
   static bool isUserLogIn(){

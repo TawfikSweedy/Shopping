@@ -10,6 +10,7 @@ import 'package:shopping/Modules/Home/home_screen.dart';
 import 'package:shopping/Provider/cart_provider.dart';
 
 class MainScreen extends StatefulWidget {
+  static const routeName = "/MainScreen";
   const MainScreen({super.key});
 
   @override
